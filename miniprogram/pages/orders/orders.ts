@@ -1,66 +1,61 @@
-// pages/orders/orders.ts
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    userAddress: '',
+    product: {
+      image: '/assets/product.png',
+      name: '黄老五咔咔大礼包',
+      spec: '1113g/袋',
+      quantity: 1,
+      price: 59.9,
+      totalPrice: 59.9,
+      discount: 0.59,
+      finalPrice: 59.31,
+    },
+    remark: '',
+    paymentMethod: 'wechat',
+    agreed: false,
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad() {
-
+  chooseAddress() {
+    wx.navigateTo({
+      url: '/pages/address/address',
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  decreaseQuantity() {
+    if (this.data.product.quantity > 1) {
+      this.setData({
+        'product.quantity': this.data.product.quantity - 1,
+        'product.totalPrice': this.data.product.price * (this.data.product.quantity - 1),
+        'product.finalPrice': this.data.product.price * (this.data.product.quantity - 1) - this.data.product.discount,
+      });
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  increaseQuantity() {
+    this.setData({
+      'product.quantity': this.data.product.quantity + 1,
+      'product.totalPrice': this.data.product.price * (this.data.product.quantity + 1),
+      'product.finalPrice': this.data.product.price * (this.data.product.quantity + 1) - this.data.product.discount,
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
+  handleRemarkInput(e) {
+    this.setData({
+      remark: e.detail.value,
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
+  toggleAgreement() {
+    this.setData({
+      agreed: !this.data.agreed,
+    });
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
+  submitOrder() {
+    if (!this.data.agreed) {
+      wx.showToast({
+        title: '请先同意服务协议',
+        icon: 'none',
+      });
+      return;
+    }
+    wx.showToast({
+      title: '订单提交成功',
+    });
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  }
-})
+});

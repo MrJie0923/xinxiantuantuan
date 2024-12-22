@@ -1,2 +1,66 @@
-<!--pages/orders/orders.wxml-->
-<text>pages/orders/orders.wxml</text>
+<view class="order-page">
+  <!-- 收货地址 -->
+  <view class="address-section" bindtap="chooseAddress">
+    <text class="address-title">请填写收货地址</text>
+    <text class="address-detail">{{userAddress || '请选择地址'}}</text>
+  </view>
+
+  <!-- 商品信息 -->
+  <view class="product-section">
+    <image class="product-image" src="{{product.image}}" />
+    <view class="product-info">
+      <text class="product-name">{{product.name}}</text>
+      <text class="product-spec">{{product.spec}}</text>
+      <view class="quantity-section">
+        <button class="quantity-btn" bindtap="decreaseQuantity">-</button>
+        <text class="quantity">{{product.quantity}}</text>
+        <button class="quantity-btn" bindtap="increaseQuantity">+</button>
+      </view>
+      <text class="product-price">¥{{product.price}}</text>
+    </view>
+  </view>
+
+  <!-- 商品价格 -->
+  <view class="price-section">
+    <view class="price-item">
+      <text>商品总价</text>
+      <text>¥{{product.totalPrice}}</text>
+    </view>
+    <view class="price-item">
+      <text>会员优惠</text>
+      <text>-¥{{product.discount}}</text>
+    </view>
+    <view class="price-item">
+      <text>实际支付</text>
+      <text class="final-price">¥{{product.finalPrice}}</text>
+    </view>
+  </view>
+
+  <!-- 备注 -->
+  <view class="remark-section">
+    <input placeholder="请输入备注内容" value="{{remark}}" bindinput="handleRemarkInput" />
+  </view>
+
+  <!-- 支付方式 -->
+  <view class="payment-section">
+    <view class="payment-method" bindtap="selectPaymentMethod">
+      <text>微信支付</text>
+      <view class="payment-selected" wx:if="{{paymentMethod === 'wechat'}}">✔</view>
+    </view>
+    <view class="payment-method" bindtap="selectFriendPayment">
+      <text>微信好友代付</text>
+      <view class="payment-selected" wx:if="{{paymentMethod === 'friend'}}">✔</view>
+    </view>
+  </view>
+
+  <!-- 服务协议 -->
+  <view class="agreement-section">
+    <checkbox value="{{agreed}}" bindchange="toggleAgreement" />
+    <text>我已阅读并同意《快团团用户服务协议》《快团团隐私政策》</text>
+  </view>
+
+  <!-- 提交订单按钮 -->
+  <button class="submit-button" bindtap="submitOrder">
+    立即支付 ¥{{product.finalPrice}}
+  </button>
+</view>

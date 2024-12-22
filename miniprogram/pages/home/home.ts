@@ -42,6 +42,14 @@ Page({
     });
   },
 
+  // 跳转到详情页
+  navigateToDetail(e) {
+    const productId = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: `/pages/product-detail/product-detail?id=${productId}`
+    });
+  },
+
   joinGroup(e) {
     const productId = e.currentTarget.dataset.id;
     // 处理用户参团的逻辑，例如跳转到商品详情页或直接下单

@@ -1,11 +1,11 @@
 <view class="container">
   <block wx:for="{{products}}" wx:key="id">
-    <view class="product-item">
+    <view class="product-item" bindtap="navigateToDetail">
       <!-- 商品图片 -->
       <image class="product-image" src="{{item.image}}" alt="{{item.title}}" />
 
       <!-- 商品信息 -->
-      <view class="product-info">
+      <view class="product-info"  data-id="{{item.id}}">
         <!-- 商品标题 -->
         <text class="product-title">{{item.title}}</text>
 
