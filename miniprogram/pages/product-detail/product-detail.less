@@ -1,0 +1,80 @@
+
+
+/* 容器样式 */
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 100rpx; /* 留出底部操作栏的空间 */
+}
+
+/* 轮播图样式 */
+.swiper-container {
+  width: 100%;
+  height: 600rpx;
+}
+
+.swiper-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 商品标题 */
+.product-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  padding: 20rpx;
+}
+
+/* 商品价格 */
+.product-price {
+  font-size: 32rpx;
+  color: #e64340;
+  padding: 0 20rpx;
+}
+
+/* 商品描述 */
+.product-description {
+  padding: 20rpx;
+}
+
+.description-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.description-content {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* 底部操作栏 */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+}
+
+.cart-button {
+  flex: 1;
+  background-color: #f8f8f8;
+  color: #333;
+  font-size: 32rpx;
+  border: none;
+}
+
+.buy-button {
+  flex: 1;
+  background-color: #e64340;
+  color: #fff;
+  font-size: 32rpx;
+  border: none;
+}

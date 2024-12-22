@@ -1,0 +1,106 @@
+
+
+/* 页面容器 */
+.container {
+  padding: 10rpx;
+}
+
+/* 单个商品项 */
+.product-item {
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* 商品图片 */
+.product-image {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+}
+
+/* 商品信息容器 */
+.product-info {
+  flex: 1;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  /* 调整布局，使内容合理分布 */
+  justify-content: space-between;
+}
+
+/* 商品标题 */
+.product-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 商品价格 */
+.product-price {
+  font-size: 28rpx;
+  color: #e64340;
+  margin: 10rpx 0;
+}
+
+/* 进度条和按钮的容器 */
+.progress-and-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+/* 成团进度容器 */
+.progress-container {
+  flex: 1; /* 占据剩余空间 */
+}
+
+/* 进度信息 */
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 进度文本 */
+.progress-text {
+  font-size: 24rpx;
+  color: #666;
+}
+
+/* 进度百分比 */
+.progress-percentage {
+  font-size: 24rpx;
+  color: #e64340;
+}
+
+/* 进度条背景 */
+.progress-bar {
+  width: 100%;
+  height: 16rpx;
+  background-color: #f0f0f0;
+  border-radius: 8rpx;
+  margin-top: 8rpx;
+  overflow: hidden;
+}
+
+/* 进度条填充 */
+.progress-bar-fill {
+  height: 100%;
+  background-color: #17c671;
+  border-radius: 8rpx 0 0 8rpx;
+  transition: width 0.3s ease;
+}
+
+/* 参团按钮 */
+.join-button {
+  margin-left: 20rpx;
+  padding: 12rpx 20rpx;
+  background-color: #FFA500;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+}
